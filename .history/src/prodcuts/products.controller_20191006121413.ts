@@ -19,7 +19,7 @@ export class ProductsController {
     @Body('description') prodDesc: string,
     @Body('price') prodPrice: number,
   ) {
-    const generatedId = await this.productsService.insertProduct(
+    const generatedId = this.productsService.insertProduct(
       prodTitle,
       prodDesc,
       prodPrice,

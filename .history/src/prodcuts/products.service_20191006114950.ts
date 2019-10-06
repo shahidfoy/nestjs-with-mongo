@@ -1,24 +1,18 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { Model } from 'mongoose';
 import { Product } from './product.model';
 
 @Injectable()
 export class ProductsService {
   private products: Product[] = [];
 
-  constructor(
-    @InjectModel('Product') private readonly productModel: Model<Product>,
-  ) {}
+  constructor(@InjectModel('product') ) {}
 
-  async insertProduct(title: string, desc: string, price: number) {
-    const newProduct = new this.productModel({
-      title,
-      description: desc,
-      price,
-    });
-    const result = await newProduct.save();
-    return result.id as string;
+  insertProduct(title: string, desc: string, price: number): string {
+    const prodId = Math.random().toString();
+    const newProduct = new Product(prodId, title, desc, price);
+    this.products.push(newProduct);
+    return prodId;
   }
 
   getProducts() {

@@ -8,7 +8,7 @@ import { ProductsModule } from './prodcuts/products.module';
   imports: [
     ProductsModule,
     MongooseModule.forRoot(
-      'mongodb+srv://m001-student:Sqz8JxhVoDV7qMBt@shahidfoy-lq9mm.mongodb.net/nestjs-demo?retryWrites=true&w=majority',
+      'mongodb+srv://m001-student:Sqz8JxhVoDV7qMBt@shahidfoy-lq9mm.mongodb.net/admin?retryWrites=true&w=majority',
     ),
   ],
   controllers: [AppController],
