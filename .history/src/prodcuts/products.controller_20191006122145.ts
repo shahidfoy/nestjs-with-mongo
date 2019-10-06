@@ -29,7 +29,7 @@ export class ProductsController {
 
   @Get()
   async getAllProducts() {
-    const products = await this.productsService.getProducts();
+    const procuts = await this.productsService.getProducts();
     return products;
   }
 
